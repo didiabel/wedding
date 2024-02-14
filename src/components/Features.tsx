@@ -33,6 +33,7 @@ const Features = () => {
                     style={{
                       display: 'flex',
                       marginRight: '20px',
+                      marginTop: '30px',
                     }}
                   >
                     <img
