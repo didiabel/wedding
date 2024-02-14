@@ -20,7 +20,7 @@
   "mainHero": {
     "title": "Programa",
     "subtitle": "Menora-UP",
-    "description": "Los alumnos del grupo Menora en la UP pueden tomar cursos electivos sobre judaísmo y ética judía, formando parte esencial del plan de estudios para cultivar profesionales éticos basados en enseñanzas milenarias.",
+    "description": "Si querés estudiar en la Facultad de Negocios, en la Facultad de Ingeniería, en la Facultad de Diseño y Comunicación o en la Facultad de Ciencias Sociales  \n \n En Menora UP te ofrecemos un ambiente de excelencia académica cuidadosamente adaptado a tus necesidades.",
     "img": "/assets/images/happyTeam.jpeg",
     "primaryAction": {
       "text": "Envianos un mensaje",
@@ -41,13 +41,23 @@
     "items": [
       {
         "title": "Calendario judío",
-        "description": "En Menora UP coordinamos nuestros esfuerzos para lograr adaptar el calendario académico respetando las fechas festivas en las cuales no es posible asistir a cursar materias ni rendir exámenes. Esto implica al Shabat y a todos los días no laborables: Yom Tov de Pesaj, Shavuot, Rosh Hashana, Kipur y Sucot.",
+        "description": "En Menora UP coordinamos nuestros esfuerzos para lograr adaptar el calendario académico respetando las fechas festivas en las cuales no es posible asistir a cursar materias ni rendir exámenes. \n \n Esto implica al Shabat y a todos los días no laborables: Yom Tov de Pesaj, Shavuot, Rosh Hashana, Kipur y Sucot.",
         "img": "/assets/images/product1.jpg"
       },
       {
         "title": "Aulas exclusivas",
-        "description": "Los estudiantes que se inscriban en la UP a través de Menora tendrán aulas exclusivas para su uso. Esto facilitará la formación de grupos y fortalecerá su sentido de pertenencia, creando un ambiente propicio para el respeto de las normas relacionadas con la interacción entre estudiantes, incluyendo aspectos como el recato entre chicos y chicas, entre otros detalles.",
+        "description": "Los estudiantes que se inscriban en la UP a través de Menora tendrán aulas exclusivas para su uso. \n \n Esto facilitará la formación de grupos y fortalecerá su sentido de pertenencia, creando un ambiente propicio para el respeto de las normas relacionadas con la interacción entre estudiantes, incluyendo aspectos como el recato entre chicos y chicas, entre otros detalles.",
         "img": "/assets/images/product2.jpg"
+      },
+      {
+        "title": "Estudio del judaísmo y ética",
+        "description": "Los alumnos de la UP que pertenezcan al grupo Menora tendrán la posibilidad de estudiar cursos relativos al judaísmo y ética judía como materias electivas, que forman parte integral del plan de estudios de la carrera. \n \n Dichos cursos apuntan a formar profesionales con altos estándares de ética profesional, basados en las sabias enseñanzas de nuestro legado milenario.",
+        "img": "/assets/images/happyTeam.jpeg"
+      },
+      {
+        "title": "Programas de Grado en estudios de Torá",
+        "description": "Estudiá en la Midrashá de Menora: \n • Accedé a un alto nivel académico en estudios judaicos. \n • Obtené un certificado de altos estudios de Torá, firmado por la Midrashá de Menora. \n • Acumulá créditos académicos para acceder a: descuentos en el arancel UP, viaje de estudios y otros beneficios.",
+        "img": "/assets/images/product3.jpg"
       }
     ]
   },

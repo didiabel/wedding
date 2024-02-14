@@ -5,7 +5,6 @@ import Divider from './Divider';
 
 const Product = () => {
   const { product } = config;
-  const [firstItem, secondItem] = product.items;
 
   return (
     <section className={`bg-background py-8`} id="product">
@@ -23,23 +22,32 @@ const Product = () => {
           ))}
         </h1>
         <Divider />
-        <div className={`flex flex-wrap`}>
-          <div className={`w-5/6 sm:w-1/2 p-6 mt-20`}>
-            <h3
-              className={`text-3xl text-gray-800 font-bold leading-none mb-3`}
-            >
-              {firstItem?.title}
-            </h3>
-            <p className={`text-gray-600`}>{firstItem?.description}</p>
+        {product.items.map((value, index) => (
+          <div
+            className={`flex flex-wrap ${
+              index % 2 === 0 ? '' : 'flex-row-reverse'
+            }`}
+            key={index}
+          >
+            <div className={`w-5/6 sm:w-1/2 p-6 mt-20`}>
+              <h3
+                className={`text-3xl text-gray-800 font-bold leading-none mb-3`}
+              >
+                {value?.title}
+              </h3>
+              <p
+                className={`text-gray-600`}
+                dangerouslySetInnerHTML={{
+                  __html: value.description.replace(/\n/g, '<br />'),
+                }}
+              />
+            </div>
+            <div className={`w-full sm:w-1/2 p-6`}>
+              <img className="h-6/6" src={value?.img} alt={value?.title} />
+            </div>
           </div>
-          <div className={`w-full sm:w-1/2 p-6`}>
-            <img
-              className="h-6/6"
-              src={firstItem?.img}
-              alt={firstItem?.title}
-            />
-          </div>
-        </div>
+        ))}
+        {/* 
         <div className={`flex flex-wrap flex-col-reverse sm:flex-row`}>
           <div className={`w-full sm:w-1/2 p-6`}>
             <img
@@ -58,7 +66,7 @@ const Product = () => {
               <p className={`text-gray-600 mb-8`}>{secondItem?.description}</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
