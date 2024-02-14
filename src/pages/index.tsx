@@ -8,10 +8,12 @@ import Header from '../components/Header';
 import LazyShow from '../components/LazyShow';
 import MainHero from '../components/MainHero';
 import MainHeroImage from '../components/MainHeroImage';
-import Pricing from '../components/Pricing';
 import Product from '../components/Product';
+import config from '../config/index.json';
 
 const App = () => {
+  const { whatsapp } = config;
+
   return (
     <div className={`bg-background grid gap-y-16 overflow-hidden`}>
       <div className={`relative bg-background`}>
@@ -38,9 +40,9 @@ const App = () => {
           <Canvas />
         </>
       </LazyShow>
-      <LazyShow>
+      {/* <LazyShow>
         <Pricing />
-      </LazyShow>
+      </LazyShow> */}
       <LazyShow>
         <>
           <Canvas />
@@ -48,6 +50,32 @@ const App = () => {
         </>
       </LazyShow>
       <Analytics />
+      <a
+        href={whatsapp.link}
+        className={`font-medium text-primary hover:text-secondary`}
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          right: 0,
+          margin: 35,
+        }}
+      >
+        <img
+          style={{
+            margin: '0 auto',
+          }}
+          src={whatsapp.img}
+          alt="whatsapp"
+          className="w-16 h-16 "
+        />
+        <h1
+          style={{
+            color: 'white',
+          }}
+        >
+          {whatsapp.title}
+        </h1>
+      </a>
     </div>
   );
 };
