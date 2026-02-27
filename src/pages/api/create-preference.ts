@@ -5,13 +5,13 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { guardarEnSheet } from '../../utils/googleSheets';
 
 const MP_ACCESS_TOKEN =
-  'APP_USR-1949867226242714-022716-a82e82a76dad91d86c9e3a011e61ad91-3232941174';
+  'APP_USR-2240138789257429-022715-9befae9a8d8cda7566751364cfc93e67-458192513';
 
 const client = new MercadoPagoConfig({ accessToken: MP_ACCESS_TOKEN });
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
