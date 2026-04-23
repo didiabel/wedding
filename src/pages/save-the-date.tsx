@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import type { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
 interface TimeLeft {
@@ -9,6 +8,9 @@ interface TimeLeft {
   minutos: number;
   segundos: number;
 }
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mijal-y-didi.chipock.com';
 
 function calcularTiempoRestante(): TimeLeft {
   const boda = new Date('2026-10-18T18:00:00');
@@ -27,14 +29,7 @@ function calcularTiempoRestante(): TimeLeft {
   };
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const proto = req.headers['x-forwarded-proto'] ?? 'https';
-  const host = req.headers['x-forwarded-host'] ?? req.headers.host ?? '';
-  const baseUrl = `${proto}://${host}`;
-  return { props: { baseUrl } };
-};
-
-export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
+export default function SaveTheDate() {
   const [tiempoRestante, setTiempoRestante] = useState<TimeLeft>(
     calcularTiempoRestante()
   );
@@ -55,7 +50,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
       <Head>
         <title>Mijal &amp; Didi — 18 de Octubre</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:url" content={`${baseUrl}/save-the-date/`} />
+        <meta property="og:url" content={`${SITE_URL}/save-the-date/`} />
         <meta
           property="og:title"
           content="Mijal & Didi — 18 de Octubre, 2026"
@@ -64,8 +59,9 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           property="og:description"
           content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
         />
-        <meta property="og:image" content={`${baseUrl}/api/og/`} />
-        <meta property="og:image:secure_url" content={`${baseUrl}/api/og/`} />
+        <meta property="og:image" content={`${SITE_URL}/og.png`} />
+        <meta property="og:image:secure_url" content={`${SITE_URL}/og.png`} />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
@@ -78,7 +74,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           name="twitter:description"
           content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
         />
-        <meta name="twitter:image" content={`${baseUrl}/api/og/`} />
+        <meta name="twitter:image" content={`${SITE_URL}/og.png`} />
         <link
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400&display=swap"
           rel="stylesheet"
