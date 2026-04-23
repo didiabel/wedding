@@ -398,7 +398,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           font-size: clamp(2.5rem, 13vw, 80px);
           color: #0a244e;
           margin: 0 0 2rem;
-          margin-top: 4rem;
+          margin-top: 50px;
           width: 100%;
           line-height: 1;
           display: flex;
