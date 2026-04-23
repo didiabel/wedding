@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Tan Pearl';
+  src: url('/font/TAN-PEARL-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
