@@ -386,6 +386,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           text-transform: uppercase;
           margin: 0 0 1.5rem;
           line-height: 1;
+          margin-bottom: 50px;
 
           /* 3. Forces the text words to perfectly touch the left and right walls */
           width: 100%;
