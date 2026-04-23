@@ -30,15 +30,16 @@ export default async function handler(req: Request) {
         },
       }
     ).then((r) => r.text());
-    const fontUrl = css.match(/url\(([^)]+)\)/)?.[1];
+    const fontUrl = css.match(/url\(([^)]+)\)/)?.[1]?.replace(/['"]/g, '');
     if (!fontUrl) throw new Error(`Font URL not found for ${family} ${weight}`);
     return fetch(fontUrl).then((r) => r.arrayBuffer());
   }
 
   const [tanPearlData, libreRegularData, libreBoldData] = await Promise.all([
-    fetch(new URL('/font/TAN-PEARL-Regular.otf', url.origin)).then((r) =>
-      r.arrayBuffer()
-    ),
+    fetch(
+      searchParams.get('tanPearlUrl') ??
+        'https://db.onlinewebfonts.com/t/bb99de1682ee75602d351c1dde11a054.ttf'
+    ).then((r) => r.arrayBuffer()),
     loadGoogleFontTtf('Libre Baskerville', 400),
     loadGoogleFontTtf('Libre Baskerville', 700),
   ]);
@@ -59,6 +60,7 @@ export default async function handler(req: Request) {
         {/* Background texture */}
         <img
           src={bgUrl}
+          alt=""
           style={{
             position: 'absolute',
             inset: '0',
