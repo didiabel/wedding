@@ -56,7 +56,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
     secondName: 'Didi',
     dateLabel: '18 de octubre del 2026',
     hebrewDate: '7 de jeshvan 5787',
-    footer: 'Con amor, los esperamos',
+    footer: 'Te esperamos!',
   };
 
   const ogImageUrl = new URL(`${baseUrl}/api/og`);
@@ -81,7 +81,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
         />
         <meta
           property="og:description"
-          content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
+          content="¡Save the date! Los invitamos a celebrar nuestro casamiento."
         />
 
         {/* WhatsApp-specific fixes */}
@@ -103,7 +103,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
         />
         <meta
           name="twitter:description"
-          content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
+          content="¡Save the date! Los invitamos a celebrar nuestro casamiento."
         />
         <meta name="twitter:image" content={finalOgUrl} />
         <link
@@ -398,6 +398,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           font-size: clamp(2.5rem, 13vw, 80px);
           color: #0a244e;
           margin: 0 0 2rem;
+          margin-top: 2rem;
           width: 100%;
           line-height: 1;
           display: flex;

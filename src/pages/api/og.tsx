@@ -12,7 +12,7 @@ export default async function handler(req: Request) {
   const secondName = searchParams.get('secondName') ?? 'Didi';
   const dateLine = searchParams.get('date') ?? '18 de octubre del 2026';
   const hebrewDateLine = searchParams.get('hebrewDate') ?? '7 de jeshvan 5787';
-  const footer = searchParams.get('footer') ?? 'Con amor, los esperamos';
+  const footer = searchParams.get('footer') ?? 'Te esperamos!';
 
   // Background texture commented out to keep PNG size under WhatsApp's 300KB limit
   // const bgUrl = new URL('/images/bg.png', url.origin).toString();
