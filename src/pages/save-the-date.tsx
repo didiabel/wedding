@@ -34,7 +34,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 };
 
 export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
-  const [tiempoRestante, setTiempoRestante] = useState<TimeLeft>(calcularTiempoRestante());
+  const [tiempoRestante, setTiempoRestante] = useState<TimeLeft>(
+    calcularTiempoRestante(),
+  );
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -51,68 +53,80 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
     <>
       <Head>
         <title>Mijal &amp; Didi — 18 de Octubre</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Mijal & Didi — 18 de Octubre, 2026" />
-        <meta property="og:description" content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento." />
-        <meta property="og:image" content={`${baseUrl}/api/og`} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Mijal & Didi — 18 de Octubre, 2026" />
-        <meta name="twitter:description" content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento." />
-        <meta name="twitter:image" content={`${baseUrl}/api/og`} />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          property='og:title'
+          content='Mijal & Didi — 18 de Octubre, 2026'
+        />
+        <meta
+          property='og:description'
+          content='¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento.'
+        />
+        <meta property='og:image' content={`${baseUrl}/api/og`} />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:type' content='website' />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta
+          name='twitter:title'
+          content='Mijal & Didi — 18 de Octubre, 2026'
+        />
+        <meta
+          name='twitter:description'
+          content='¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento.'
+        />
+        <meta name='twitter:image' content={`${baseUrl}/api/og`} />
         <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400&display=swap"
-          rel="stylesheet"
+          href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400&display=swap'
+          rel='stylesheet'
         />
       </Head>
 
-      <main className="page">
+      <main className='page'>
         {[...Array(12)].map((_, i) => (
-          <span key={i} className={`petal petal-${i + 1}`} aria-hidden="true" />
+          <span key={i} className={`petal petal-${i + 1}`} aria-hidden='true' />
         ))}
 
-        <div className="card">
-          <p className="eyebrow">— Guarden esta fecha —</p>
+        <div className='card'>
+          <p className='eyebrow'>— Guarden esta fecha —</p>
 
-          <h1 className="names">
+          <h1 className='names'>
             <span>Mijal</span>
-            <span className="ampersand">&amp;</span>
+            <span className='ampersand'>&amp;</span>
             <span>Didi</span>
           </h1>
 
-          <div className="divider">
-            <span className="line" />
-            <span className="diamond">◆</span>
-            <span className="line" />
+          <div className='divider'>
+            <span className='line' />
+            <span className='diamond'>◆</span>
+            <span className='line' />
           </div>
 
-          <p className="date-label">18 de Octubre</p>
-          <p className="year">2026</p>
+          <p className='date-label'>18 de Octubre</p>
+          <p className='year'>2026</p>
 
           {mounted && (
-            <div className="countdown">
-              <div className="unit">
-                <span className="number">{tiempoRestante.dias}</span>
-                <span className="label">días</span>
+            <div className='countdown'>
+              <div className='unit'>
+                <span className='number'>{tiempoRestante.dias}</span>
+                <span className='label'>días</span>
               </div>
-              <div className="unit">
-                <span className="number">{pad(tiempoRestante.horas)}</span>
-                <span className="label">horas</span>
+              <div className='unit'>
+                <span className='number'>{pad(tiempoRestante.horas)}</span>
+                <span className='label'>horas</span>
               </div>
-              <div className="unit">
-                <span className="number">{pad(tiempoRestante.minutos)}</span>
-                <span className="label">min</span>
+              <div className='unit'>
+                <span className='number'>{pad(tiempoRestante.minutos)}</span>
+                <span className='label'>min</span>
               </div>
-              <div className="unit">
-                <span className="number">{pad(tiempoRestante.segundos)}</span>
-                <span className="label">seg</span>
+              <div className='unit'>
+                <span className='number'>{pad(tiempoRestante.segundos)}</span>
+                <span className='label'>seg</span>
               </div>
             </div>
           )}
 
-          <p className="footer-text">Con amor, los esperamos</p>
+          <p className='footer-text'>Con amor, los esperamos</p>
         </div>
       </main>
 
@@ -125,7 +139,12 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          background: linear-gradient(135deg, #fdf6f0 0%, #fce8e0 40%, #f5dce8 100%);
+          background: linear-gradient(
+            135deg,
+            #fdf6f0 0%,
+            #fce8e0 40%,
+            #f5dce8 100%
+          );
           padding: 1.5rem 1rem;
         }
 
@@ -136,27 +155,125 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           animation: fall linear infinite;
           pointer-events: none;
         }
-        .petal:nth-child(odd)  { background: rgba(220, 140, 160, 0.45); }
-        .petal:nth-child(even) { background: rgba(240, 180, 160, 0.40); }
+        .petal:nth-child(odd) {
+          background: rgba(220, 140, 160, 0.45);
+        }
+        .petal:nth-child(even) {
+          background: rgba(240, 180, 160, 0.4);
+        }
 
-        .petal-1  { left: 5%;  width: 8px;  height: 13px; animation-duration: 9s;  animation-delay: 0s;   top: -20px; }
-        .petal-2  { left: 12%; width: 14px; height: 20px; animation-duration: 11s; animation-delay: 2s;   top: -20px; }
-        .petal-3  { left: 22%; width: 10px; height: 16px; animation-duration: 8s;  animation-delay: 1s;   top: -20px; }
-        .petal-4  { left: 35%; width: 12px; height: 18px; animation-duration: 13s; animation-delay: 4s;   top: -20px; }
-        .petal-5  { left: 50%; width: 9px;  height: 14px; animation-duration: 10s; animation-delay: 0.5s; top: -20px; }
-        .petal-6  { left: 62%; width: 13px; height: 19px; animation-duration: 7s;  animation-delay: 3s;   top: -20px; }
-        .petal-7  { left: 72%; width: 11px; height: 17px; animation-duration: 12s; animation-delay: 1.5s; top: -20px; }
-        .petal-8  { left: 83%; width: 8px;  height: 12px; animation-duration: 9s;  animation-delay: 5s;   top: -20px; }
-        .petal-9  { left: 90%; width: 15px; height: 21px; animation-duration: 14s; animation-delay: 2.5s; top: -20px; }
-        .petal-10 { left: 18%; width: 10px; height: 15px; animation-duration: 11s; animation-delay: 6s;   top: -20px; }
-        .petal-11 { left: 45%; width: 7px;  height: 11px; animation-duration: 8s;  animation-delay: 3.5s; top: -20px; }
-        .petal-12 { left: 78%; width: 12px; height: 17px; animation-duration: 10s; animation-delay: 1s;   top: -20px; }
+        .petal-1 {
+          left: 5%;
+          width: 8px;
+          height: 13px;
+          animation-duration: 9s;
+          animation-delay: 0s;
+          top: -20px;
+        }
+        .petal-2 {
+          left: 12%;
+          width: 14px;
+          height: 20px;
+          animation-duration: 11s;
+          animation-delay: 2s;
+          top: -20px;
+        }
+        .petal-3 {
+          left: 22%;
+          width: 10px;
+          height: 16px;
+          animation-duration: 8s;
+          animation-delay: 1s;
+          top: -20px;
+        }
+        .petal-4 {
+          left: 35%;
+          width: 12px;
+          height: 18px;
+          animation-duration: 13s;
+          animation-delay: 4s;
+          top: -20px;
+        }
+        .petal-5 {
+          left: 50%;
+          width: 9px;
+          height: 14px;
+          animation-duration: 10s;
+          animation-delay: 0.5s;
+          top: -20px;
+        }
+        .petal-6 {
+          left: 62%;
+          width: 13px;
+          height: 19px;
+          animation-duration: 7s;
+          animation-delay: 3s;
+          top: -20px;
+        }
+        .petal-7 {
+          left: 72%;
+          width: 11px;
+          height: 17px;
+          animation-duration: 12s;
+          animation-delay: 1.5s;
+          top: -20px;
+        }
+        .petal-8 {
+          left: 83%;
+          width: 8px;
+          height: 12px;
+          animation-duration: 9s;
+          animation-delay: 5s;
+          top: -20px;
+        }
+        .petal-9 {
+          left: 90%;
+          width: 15px;
+          height: 21px;
+          animation-duration: 14s;
+          animation-delay: 2.5s;
+          top: -20px;
+        }
+        .petal-10 {
+          left: 18%;
+          width: 10px;
+          height: 15px;
+          animation-duration: 11s;
+          animation-delay: 6s;
+          top: -20px;
+        }
+        .petal-11 {
+          left: 45%;
+          width: 7px;
+          height: 11px;
+          animation-duration: 8s;
+          animation-delay: 3.5s;
+          top: -20px;
+        }
+        .petal-12 {
+          left: 78%;
+          width: 12px;
+          height: 17px;
+          animation-duration: 10s;
+          animation-delay: 1s;
+          top: -20px;
+        }
 
         @keyframes fall {
-          0%   { transform: translateY(0) rotate(0deg) translateX(0);    opacity: 0; }
-          10%  { opacity: 0.8; }
-          90%  { opacity: 0.6; }
-          100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity: 0; }
+          0% {
+            transform: translateY(0) rotate(0deg) translateX(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.8;
+          }
+          90% {
+            opacity: 0.6;
+          }
+          100% {
+            transform: translateY(110vh) rotate(360deg) translateX(40px);
+            opacity: 0;
+          }
         }
 
         .card {
@@ -171,7 +288,8 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           max-width: 520px;
           width: 100%;
           text-align: center;
-          box-shadow: 0 8px 48px rgba(180, 100, 120, 0.12), 0 2px 12px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 8px 48px rgba(180, 100, 120, 0.12),
+            0 2px 12px rgba(0, 0, 0, 0.06);
         }
 
         .eyebrow {
@@ -214,7 +332,12 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
         .line {
           flex: 1;
           height: 1px;
-          background: linear-gradient(to right, transparent, #d4a0b0, transparent);
+          background: linear-gradient(
+            to right,
+            transparent,
+            #d4a0b0,
+            transparent
+          );
         }
         .diamond {
           font-size: 0.45rem;
@@ -301,14 +424,25 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
             width: 70%;
             margin: 1.2rem auto;
           }
-          .year { margin-bottom: 1.5rem; }
-          .countdown { gap: 0.35rem; margin-bottom: 1.5rem; }
-          .unit { padding: 0.6rem 0; }
+          .year {
+            margin-bottom: 1.5rem;
+          }
+          .countdown {
+            gap: 0.35rem;
+            margin-bottom: 1.5rem;
+          }
+          .unit {
+            padding: 0.6rem 0;
+          }
         }
 
         @media (max-width: 360px) {
-          .card { padding: 2rem 1rem 1.6rem; }
-          .countdown { gap: 0.25rem; }
+          .card {
+            padding: 2rem 1rem 1.6rem;
+          }
+          .countdown {
+            gap: 0.25rem;
+          }
         }
       `}</style>
     </>
