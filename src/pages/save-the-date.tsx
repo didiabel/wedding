@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
+
 import type { GetServerSideProps } from 'next';
+import Head from 'next/head';
 
 interface TimeLeft {
   dias: number;
@@ -35,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
 export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
   const [tiempoRestante, setTiempoRestante] = useState<TimeLeft>(
-    calcularTiempoRestante(),
+    calcularTiempoRestante()
   );
   const [mounted, setMounted] = useState(false);
 
@@ -53,80 +54,80 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
     <>
       <Head>
         <title>Mijal &amp; Didi — 18 de Octubre</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
-          property='og:title'
-          content='Mijal & Didi — 18 de Octubre, 2026'
+          property="og:title"
+          content="Mijal & Didi — 18 de Octubre, 2026"
         />
         <meta
-          property='og:description'
-          content='¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento.'
+          property="og:description"
+          content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
         />
-        <meta property='og:image' content={`${baseUrl}/api/og`} />
-        <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='630' />
-        <meta property='og:type' content='website' />
-        <meta name='twitter:card' content='summary_large_image' />
+        <meta property="og:image" content={`${baseUrl}/api/og`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name='twitter:title'
-          content='Mijal & Didi — 18 de Octubre, 2026'
+          name="twitter:title"
+          content="Mijal & Didi — 18 de Octubre, 2026"
         />
         <meta
-          name='twitter:description'
-          content='¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento.'
+          name="twitter:description"
+          content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
         />
-        <meta name='twitter:image' content={`${baseUrl}/api/og`} />
+        <meta name="twitter:image" content={`${baseUrl}/api/og`} />
         <link
-          href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400&display=swap'
-          rel='stylesheet'
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400&display=swap"
+          rel="stylesheet"
         />
       </Head>
 
-      <main className='page'>
+      <main className="page">
         {[...Array(12)].map((_, i) => (
-          <span key={i} className={`petal petal-${i + 1}`} aria-hidden='true' />
+          <span key={i} className={`petal petal-${i + 1}`} aria-hidden="true" />
         ))}
 
-        <div className='card'>
-          <p className='eyebrow'>— Guarden esta fecha —</p>
+        <div className="card">
+          <p className="eyebrow">— Guarden esta fecha —</p>
 
-          <h1 className='names'>
+          <h1 className="names">
             <span>Mijal</span>
-            <span className='ampersand'>&amp;</span>
+            <span className="ampersand">&amp;</span>
             <span>Didi</span>
           </h1>
 
-          <div className='divider'>
-            <span className='line' />
-            <span className='diamond'>◆</span>
-            <span className='line' />
+          <div className="divider">
+            <span className="line" />
+            <span className="diamond">◆</span>
+            <span className="line" />
           </div>
 
-          <p className='date-label'>18 de Octubre</p>
-          <p className='year'>2026</p>
+          <p className="date-label">18 de Octubre</p>
+          <p className="year">2026</p>
 
           {mounted && (
-            <div className='countdown'>
-              <div className='unit'>
-                <span className='number'>{tiempoRestante.dias}</span>
-                <span className='label'>días</span>
+            <div className="countdown">
+              <div className="unit">
+                <span className="number">{tiempoRestante.dias}</span>
+                <span className="label">días</span>
               </div>
-              <div className='unit'>
-                <span className='number'>{pad(tiempoRestante.horas)}</span>
-                <span className='label'>horas</span>
+              <div className="unit">
+                <span className="number">{pad(tiempoRestante.horas)}</span>
+                <span className="label">horas</span>
               </div>
-              <div className='unit'>
-                <span className='number'>{pad(tiempoRestante.minutos)}</span>
-                <span className='label'>min</span>
+              <div className="unit">
+                <span className="number">{pad(tiempoRestante.minutos)}</span>
+                <span className="label">min</span>
               </div>
-              <div className='unit'>
-                <span className='number'>{pad(tiempoRestante.segundos)}</span>
-                <span className='label'>seg</span>
+              <div className="unit">
+                <span className="number">{pad(tiempoRestante.segundos)}</span>
+                <span className="label">seg</span>
               </div>
             </div>
           )}
 
-          <p className='footer-text'>Con amor, los esperamos</p>
+          <p className="footer-text">Con amor, los esperamos</p>
         </div>
       </main>
 
