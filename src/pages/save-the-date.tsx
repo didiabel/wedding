@@ -398,7 +398,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           font-size: clamp(2.5rem, 13vw, 80px);
           color: #0a244e;
           margin: 0 0 2rem;
-          margin-top: 2rem;
+          margin-top: 3rem;
           width: 100%;
           line-height: 1;
           display: flex;
@@ -443,6 +443,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           justify-content: center;
           gap: 0.8rem;
           margin: 0 auto 2.5rem;
+          margin-bottom: 1.5rem;
           flex-wrap: nowrap;
           width: 100%; /* Remains matched to bounding box */
         }
