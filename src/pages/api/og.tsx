@@ -14,7 +14,8 @@ export default async function handler(req: Request) {
   const hebrewDateLine = searchParams.get('hebrewDate') ?? '7 de jeshvan 5787';
   const footer = searchParams.get('footer') ?? 'Con amor, los esperamos';
 
-  const bgUrl = new URL('/images/bg.png', url.origin).toString();
+  // Background texture commented out to keep PNG size under WhatsApp's 300KB limit
+  // const bgUrl = new URL('/images/bg.png', url.origin).toString();
   const frameUrl = new URL('/images/flower-frame.png', url.origin).toString();
 
   async function loadGoogleFontTtf(family: string, weight: number) {
@@ -57,19 +58,6 @@ export default async function handler(req: Request) {
           background: 'linear-gradient(135deg, #fbf8f3 0%, #f7efe5 100%)',
         }}
       >
-        {/* Background texture */}
-        <img
-          src={bgUrl}
-          alt=""
-          style={{
-            position: 'absolute',
-            inset: '0',
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
-        />
-
         {/* Card */}
         <div
           style={{
@@ -246,6 +234,10 @@ export default async function handler(req: Request) {
           style: 'normal',
         },
       ],
+      headers: {
+        // Essential: Instructs CDNs/Scrapers to cache the image so WhatsApp doesn't timeout
+        'Cache-Control': 'public, max-age=31536000, immutable',
+      },
     }
   );
 }

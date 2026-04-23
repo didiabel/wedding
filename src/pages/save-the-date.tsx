@@ -1,5 +1,3 @@
-// 📍 File: pages/save-the-date.tsx
-
 import { useEffect, useState } from 'react';
 
 import type { GetServerSideProps } from 'next';
@@ -68,6 +66,9 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
   ogImageUrl.searchParams.set('hebrewDate', '7 de jeshvan 5787');
   ogImageUrl.searchParams.set('footer', eventDetails.footer);
 
+  // Essential for WhatsApp: Adds a dummy extension so strict parsers recognize it as an image
+  const finalOgUrl = `${ogImageUrl.toString()}&ext=.png`;
+
   return (
     <>
       <Head>
@@ -82,11 +83,19 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           property="og:description"
           content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
         />
-        <meta property="og:image" content={ogImageUrl.toString()} />
-        <meta property="og:image:secure_url" content={ogImageUrl.toString()} />
+
+        {/* WhatsApp-specific fixes */}
+        <meta property="og:image" itemProp="image" content={finalOgUrl} />
+        <meta
+          property="og:image:secure_url"
+          itemProp="image"
+          content={finalOgUrl}
+        />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -96,7 +105,7 @@ export default function SaveTheDate({ baseUrl }: { baseUrl: string }) {
           name="twitter:description"
           content="¡Guarden esta fecha! Los invitamos a celebrar nuestro casamiento."
         />
-        <meta name="twitter:image" content={ogImageUrl.toString()} />
+        <meta name="twitter:image" content={finalOgUrl} />
         <link
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Montserrat:wght@300;400&display=swap"
           rel="stylesheet"
